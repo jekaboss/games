@@ -138,6 +138,11 @@ textarea {
 .menu__body {
   padding-right: 350px;
 }
+@media (max-width: 80em) {
+  .menu__body {
+    padding-right: 213px;
+  }
+}
 @media (max-width: 28.125em) {
   .menu__body {
     padding-right: 0px;
@@ -151,18 +156,13 @@ textarea {
   color: #a4a0a0;
 }
 
-#content {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  text-align: center;
+#language-switcher {
+  cursor: pointer;
 }
 
-select {
-  padding: 10px;
-  font-size: 16px;
-  background-color: #000;
-  color: #fff;
+#language-image {
+  width: 32px;
+  height: 32px;
 }
 
 body {

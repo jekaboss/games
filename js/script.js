@@ -1,24 +1,14 @@
-// Строгий режим
-"use strict"
-// Language data
-const languageData = {
-    'en': {
-        'heading': 'Hello, World!',
-        'paragraph': 'This is a sample paragraph.'
-    },
-    'ru': {
-        'heading': 'Привет, мир!',
-        'paragraph': 'Это пример параграфа.'
-    }
-};
+const languageSwitcher = document.getElementById('language-switcher');
+const languageImage = document.getElementById('language-image');
 
-// Function to change language
-function changeLanguage(selectedLanguage) {
-    const elements = Object.keys(languageData[selectedLanguage]);
-    elements.forEach(element => {
-        document.getElementById(element).innerText = languageData[selectedLanguage][element];
-    });
-}
+let currentLanguage = 'english';
 
-// Initialize content with default language
-changeLanguage('en');
+languageSwitcher.addEventListener('click', function() {
+  if (currentLanguage === 'english') {
+    languageImage.src = 'img/translate.svg';
+    currentLanguage = 'russian';
+  } else {
+    languageImage.src = 'img/translate.svg';
+    currentLanguage = 'english';
+  }
+});

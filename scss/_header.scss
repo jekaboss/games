@@ -47,6 +47,9 @@
 		}
 		&__body{
 			padding-right: 350px;
+			@media (max-width: toEm(1280)){
+				padding-right: 213px;
+			}
 			@media (max-width: toEm(450)){
 				padding-right: 0px;
 			}
@@ -60,17 +63,11 @@
 		}
 }
 
-#content {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
-		
+#language-switcher {
+  cursor: pointer;
 }
 
-select {
-    padding: 10px;
-    font-size: 16px;
-		background-color: $mainColor;
-		color: $liteColor;
+#language-image {
+  width: 32px;
+  height: 32px;
 }
