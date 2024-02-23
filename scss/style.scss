@@ -1,0 +1,535 @@
+@use "sass:math";
+
+// Мінімальна ширина сторінки
+$minWidth: 320;
+// Ширина полотна (макету)
+$maxWidth: 1920;
+// Ширина обмежуючого контейнера (0 = немає обмеження)
+$maxWidthContainer: 1742;
+// Загальний відступ у контейнера
+// (30 = по 15px ліворуч і праворуч, 0 = немає відступу)
+$containerPadding: 30;
+// Ширина спрацьовування першого брейкпоінту
+$containerWidth: $maxWidthContainer + $containerPadding;
+
+// Кольори
+$mainColor: #000;
+$liteColor: #fff;
+$mainColorHover: #a4a0a0;
+//$darkColor: #3c4242;
+//$purplColor: #8a33fd;
+
+
+// Функції
+@import "_functions.scss";
+// Шрифти
+@import "_fonts.scss";
+// Іконки
+//@import "_icons.scss";
+// Обнулення
+@import "_reset.scss";
+
+@import "_header.scss";
+// Компоненти
+//@import "_common.scss";
+
+body {
+	font-family: "Urbanist";
+	background-color: $mainColor;
+	color: $liteColor;
+}
+.wrapper {
+	overflow: clip;
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+}
+.wrapper main {
+	flex-grow: 1;
+}
+
+[class*="__container"] {
+	max-width: toRem(1742);
+	margin: 0 auto;
+	padding-left: toRem(15);
+	padding-right: toRem(15);
+}
+
+// =====================
+
+.photo {
+	position: relative;
+	max-width: 100%;
+	img{
+		max-width: 100%;
+		height: auto;
+		display: block;
+		margin-bottom: toRem(75);
+		@media (max-width: toEm(767.98)){
+			margin-bottom: toRem(45);
+		}
+	}
+		// .photo__body
+		&__body {
+			position: absolute;
+			top: 20%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+			@media (max-width: toEm(1280)){
+				top: 25%;
+			}
+			@media (max-width: toEm(767.98)){
+				top: 25%;
+			}
+		}
+		h1{
+			font-size: toRem(198);
+			font-weight: 400;
+			letter-spacing: toRem(20);
+			@media (max-width: toEm(1280)){
+				font-size: toRem(170);
+			}
+			@media (max-width: toEm(767.98)){
+				font-size: toRem(100);
+			}
+			@media (max-width: toEm(450)){
+				font-size: toRem(30);
+				margin-bottom: toRem(15);
+			}
+		}
+		p{
+			font-size: toRem(74);
+			font-weight: 400;
+			letter-spacing: toRem(7);
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      filter: blur(2px);
+			@media (max-width: toEm(1280)){
+				font-size: toRem(60);
+			}
+			@media (max-width: toEm(767.98)){
+				font-size: toRem(40);
+			}
+			@media (max-width: toEm(450)){
+				font-size: toRem(14);
+				text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        filter: blur(1px);
+			}
+		}
+}
+// =====================
+.section {
+		// .section__game
+		&__game {
+			h2{
+				font-weight: 700;
+				font-size: toRem(96);
+				margin-bottom: toRem(75);
+				text-align: center;
+				@media (max-width: toEm(1280)){
+					font-size: toRem(85);
+				}
+				@media (max-width: toEm(767.98)){
+					font-size: toRem(55);
+					margin-bottom: toRem(55);
+				}
+				@media (max-width: toEm(450)){
+					font-size: toRem(40);
+					margin-bottom: toRem(35);
+				}
+			}
+			p{
+				max-width: toRem(1460);
+				font-weight: 500;
+				font-size: toRem(48);
+				margin-bottom: toRem(75);
+				line-height: toRem(58);
+				@media (max-width: toEm(1280)){
+					font-size: toRem(42);
+					max-width: toRem(990);
+					margin-bottom: toRem(40);
+					line-height: toRem(48);
+				}
+				@media (max-width: toEm(767.98)){
+					font-size: toRem(30);
+					margin-bottom: toRem(45);
+					max-width: toRem(680);
+					line-height: toRem(38);
+				}
+				@media (max-width: toEm(450)){
+					font-size: toRem(20);
+					line-height: toRem(28);
+				}
+			}
+		}
+}
+// =====================
+.blok {
+		// .blok__video
+		&__video {
+			h2{
+				font-weight: 700;
+				font-size: toRem(96);
+				text-align: center;
+				margin-bottom: toRem(40);
+			}
+		}
+}
+.video-container {
+	position: relative;
+  max-width: toRem(1720);
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: toRem(20);
+	video{
+		width: toRem(544);
+		border-radius: toRem(20);
+		margin-bottom: toRem(75);
+		border: toRem(1) solid #fff;
+		@media (max-width: toEm(1280)){
+			width: toRem(344);
+		}
+		@media (max-width: toEm(767)){
+			margin-bottom: toRem(45);
+		}
+		@media (max-width: toEm(450)){
+			gap: 0;
+			margin-bottom: toRem(5);
+		}
+	}
+}
+// =====================
+
+.in {
+	position: relative;
+	max-width: 100%;
+	margin-bottom: toRem(75);
+	background: url('../img/photo/PHOTO.png') 100% 100% no-repeat;
+	@media (max-width: toEm(1280)){
+		background: url('../img/photo/Rectangle1.png') 0 0/contain  no-repeat;
+	}
+	@media (max-width: toEm(450)){
+		background: url('../img/photo/Rectangle1.png') 0 0/100% 100% no-repeat;
+	}
+		// .in__survival
+		&__survival {
+			// position: absolute;
+			display: flex;
+			flex-direction: row;
+      align-items: flex-end;
+			backdrop-filter: blur(3px);
+      background: rgba(0, 0, 0, 0.4);
+			@media (max-width: toEm(450)){
+				flex-direction: column;
+			}
+			p{
+				font-weight: 500;
+        font-size: toRem(48);
+				max-width: toRem(1060);
+				padding: toRem(60) toRem(125);
+				margin-left: toRem(104);
+				@media (max-width: toEm(1280)){
+					font-size: toRem(42);
+					max-width: toRem(860);
+					margin-left: toRem(10);
+					padding: toRem(50) toRem(125);
+				}
+				@media (max-width: toEm(767)){
+					font-size: toRem(22);
+					max-width: toRem(460);
+					padding: toRem(50) toRem(60);
+				}
+				@media (max-width: toEm(450)){
+					font-size: toRem(16);
+					max-width: toRem(460);
+					padding: toRem(30) toRem(60) toRem(20) toRem(20);
+				}
+			}
+		}
+		// .in__survival-in
+		&__survival-in {
+			font-weight: 500;
+      font-size: toRem(36);
+			padding-bottom: toRem(30);
+			@media (max-width: toEm(1280)){
+				font-size: toRem(30);
+			}
+			@media (max-width: toEm(767)){
+				font-size: toRem(16);
+			}
+			@media (max-width: toEm(450)){
+				margin-right: toRem(20);
+			}
+		}
+}
+// =====================
+.blok-h2 {
+	font-weight: 700;
+	font-size: toRem(96);
+	text-align: center;
+	margin-bottom: toRem(30);
+	@media (max-width: toEm(450)){
+				font-size: toRem(46);
+			}
+}
+.image-container {
+	display: flex;
+	flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+	padding-bottom: toRem(100);
+	@media (max-width: toEm(450)){
+		padding-bottom: toRem(60);
+	}
+}
+.image-placeholder {
+	max-width: toRem(544);
+	max-height: toRem(306);
+	margin-bottom: toRem(139);
+	@media (max-width: toEm(450)){
+		width: toRem(100%);
+		align-items: center;
+	  margin-bottom: toRem(50);
+	}
+}
+.image {
+
+		// .image__placeholder-ima
+
+		&__placeholder-ima {
+			font-weight: 500;
+      font-size: toRem(36);
+      text-align: center;
+			margin-top: toRem(20);
+			@media (max-width: toEm(450)){
+				font-size: toRem(26);
+			}
+		}
+}
+
+
+
+// ============================
+
+.section {
+
+		// .section__blok
+
+		&__blok {
+		}
+}
+.blok {
+
+		// .blok__beta
+
+		&__beta {
+			text-align: center;
+			h2{
+				font-weight: 700;
+				font-size: toRem(96);
+				margin-bottom: toRem(95);
+				@media (max-width: toEm(450)){
+					font-size: toRem(56);
+				  margin-bottom: toRem(75);
+				}
+			}
+			p{
+				font-weight: 500;
+				font-size: toRem(48);
+				margin-bottom: toRem(95);
+				@media (max-width: toEm(450)){
+					margin-bottom: toRem(75);
+				}
+			}
+		}
+
+		// .blok__imgame
+
+		&__imgame {
+			display: flex;
+			justify-content: center;
+			gap: toRem(85);
+			margin-bottom: toRem(95);
+			@media (max-width: toEm(450)){
+				flex-direction: column;
+				gap: toRem(45);
+			}
+		}
+
+		// .blok__community
+
+		&__community {
+			text-align: center;
+			h2{
+				font-weight: 700;
+				font-size: toRem(96);
+				margin-bottom: toRem(95);
+				@media (max-width: toEm(450)){
+					font-size: toRem(56);
+				  margin-bottom: toRem(65);
+				}
+			}
+			p{
+				font-weight: 500;
+				font-size: toRem(48);
+				margin-bottom: toRem(95);
+				@media (max-width: toEm(450)){
+					font-size: toRem(28);
+				  margin-bottom: toRem(65);
+				}
+			}
+		}
+
+		// .blok__input
+
+		&__input {
+			text-align: center;
+		}
+
+}
+
+.subscribe {
+
+		// .subscribe__body
+
+		&__body {
+			display: flex;
+			justify-content: center;
+			margin-bottom: toRem(85);
+			input{
+				width: toRem(900);
+				font-weight: 500;
+				font-size: toRem(36);
+				height: toRem(48);
+				margin-top: 3px;
+				color: #666;
+				background: #0a0a0a;
+				border-radius: toRem(10) toRem(0) toRem(0) toRem(10);
+				@media (max-width: toEm(450)){
+					width: toRem(400);
+					font-size: toRem(20);
+				}
+			}
+		}
+
+		// .subscribe__input
+
+		&__input {
+		}
+
+		// .subscribe__button
+
+		&__button {
+			width: toRem(124);
+			height: toRem(53);
+			background: #fff;
+			color: #000;
+			border-radius: toRem(10);
+			font-weight: 700;
+			font-size: toRem(24);
+			margin-left: toRem(-20);
+		}
+}
+
+// ========================
+
+.footer {
+	background: #0a0a0a;
+		// .footer__container
+
+		&__container {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			@media (max-width: toEm(450)){
+				flex-direction: column;
+			}
+		}
+
+		// .footer__logo
+
+		&__logo {
+			display: flex;
+			align-items: center;
+			gap: toRem(10);
+			p{
+				margin: toRem(10);
+			}
+		}
+
+		// .footer__blok
+
+		&__blok {
+			a{
+				padding-left: toRem(13);
+				&:hover{
+					color: #a4a0a0;
+				}
+			}
+		}
+
+		// .footer__Games
+
+		&__Games {
+			@media (max-width: toEm(450)){
+				font-size: toRem(16);
+				margin-bottom: toRem(30);
+			}
+		}
+
+		// .footer__find
+
+		&__find {
+			p{
+				padding-left: toRem(13);
+			}
+		}
+
+		// .footer__set
+
+		&__set {
+			img{
+				margin: toRem(10);
+			}
+		}
+}
+
+.audioplayer {
+	display: flex;
+	justify-content: space-between;
+    max-width: 786px;
+		gap: 20px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #666464;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+		margin-bottom: 50px;
+		@media (max-width: toEm(450)){
+			flex-direction: column;
+		}
+}
+
+audio {
+    width: 100%;
+    outline: none;
+		border: 1px solid #a4a0a0;
+		border-radius: 50px;
+}
+
+audio::-webkit-media-controls-panel {
+    background-color: #333;
+    border-radius: 10px;
+}
+
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-pause-button,
+audio::-webkit-media-controls-mute-button,
+audio::-webkit-media-controls-timeline,
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display,
+audio::-webkit-media-controls-volume-slider {
+    color: #fff;
+}
