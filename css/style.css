@@ -100,6 +100,11 @@ textarea {
     padding-left: 9.6875rem;
   }
 }
+@media (max-width: 47.99875em) {
+  .header__menu {
+    padding-left: 8.75rem;
+  }
+}
 @media (max-width: 28.125em) {
   .header__menu {
     padding-left: 1.25rem;
@@ -118,14 +123,14 @@ textarea {
 @media (max-width: 47.99875em) {
   .menu__list {
     font-size: 1.125rem;
-    gap: 3.125rem;
+    gap: 1.25rem;
   }
 }
 @media (max-width: 28.125em) {
   .menu__list {
     font-size: 1rem;
     gap: 1.25rem;
-    padding-left: 0.5625rem;
+    padding-left: -0.5625rem;
   }
 }
 @media (max-width: 24.375em) {
